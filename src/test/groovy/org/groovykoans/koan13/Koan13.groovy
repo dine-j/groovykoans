@@ -78,6 +78,7 @@ class Koan13 extends Specification {
         // Hint - this can be done in two lines
         // ------------ START EDITING HERE ----------------------
 
+        [a, b] << (0..4).permutations()
 
         // ------------ STOP EDITING HERE  ----------------------
         c = a * b
