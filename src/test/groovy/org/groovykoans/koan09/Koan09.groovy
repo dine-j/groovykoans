@@ -33,7 +33,7 @@ class Koan09 extends GroovyTestCase {
         // ------------ START EDITING HERE ----------------------
 
         expando.firstName = 'some value'
-        expando. sayHello = {
+        expando.sayHello = {
             "Hello from ${firstName}"
         }
 

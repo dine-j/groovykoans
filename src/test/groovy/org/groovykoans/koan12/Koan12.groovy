@@ -28,11 +28,13 @@ class Koan12 extends GroovyTestCase {
 
         // ------------ START EDITING HERE ----------------------
 
+        shouldFail(MissingMethodException) {
 
-            // ------------ STOP EDITING HERE  ----------------------
+        // ------------ STOP EDITING HERE  ----------------------
             Integer.nonExistentMethod()
             // ------------ START EDITING HERE ----------------------
 
+        }
 
         // ------------ STOP EDITING HERE  ----------------------
 
@@ -49,6 +51,9 @@ class Koan12 extends GroovyTestCase {
         long startTime = System.currentTimeMillis()
         // ------------ START EDITING HERE ----------------------
 
+        def expando = new Expando()
+        expando.work = { number -> number + 10 }
+        factory.worker = expando
 
         // ------------ STOP EDITING HERE  ----------------------
         factory.work()
@@ -62,9 +67,10 @@ class Koan12 extends GroovyTestCase {
         startTime = System.currentTimeMillis()
         // ------------ START EDITING HERE ----------------------
 
+        StaticFactory.metaClass.static.getWorker = { expando }
 
         // ------------ STOP EDITING HERE  ----------------------
-       new StaticFactory(numbers: 1..10).work()
+        new StaticFactory(numbers: 1..10).work()
         endTime = System.currentTimeMillis()
         assert endTime - startTime < 3000
 
