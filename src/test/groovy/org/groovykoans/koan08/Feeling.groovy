@@ -11,13 +11,15 @@ public enum Feeling {
     Happy, Sad, Neutral, Suicidal, Anticipation, Surprised, Relaxed, Guilty
 
     // ------------ START EDITING HERE ----------------------
-    boolean isCase(Person person) {
-        person.feelings.contains(this)
+
+    boolean isCase(Cartoon c) {
+        return this == c.feeling
     }
 
-    boolean isCase(Cartoon cartoon) {
-        cartoon.feeling == this
+    boolean isCase(Person p) {
+        return p.feelings.contains(this)
     }
+
     // ------------ STOP EDITING HERE  ----------------------
 
 

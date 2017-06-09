@@ -11,31 +11,31 @@ import org.codehaus.groovy.runtime.InvokerHelper
 
 class Robot {
     // ------------ START EDITING HERE ----------------------
-    def x = 0, y = 0
+
+    int x
+    int y
 
     void left() {
-        x--
+        x -= 1
     }
 
     void right() {
-        x++
+        x += 1
     }
 
     void up() {
-        y++
+        y += 1
     }
 
     void down() {
-        y--
+        y -= 1
     }
 
-    Object invokeMethod(String methodName, Object args) {
-        if (methodName ==~ /go(Left|Right|Up|Down)*/) {
-            methodName.findAll(/(?i)(left|right|up|down)/) { match, String action ->
-                InvokerHelper.getMetaClass(this).invokeMethod(this, action.toLowerCase(), null)
-            }
+    def invokeMethod(String name, Object args) {
+        name.eachMatch(/([L|l]eft)|([R|r]ight)|([U|u]p)|([D|d]own)/) {
+            "${it[0].toLowerCase()}"()
         }
-        null
     }
+
     // ------------ STOP EDITING HERE  ----------------------
 }
