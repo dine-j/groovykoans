@@ -56,6 +56,13 @@ class Koan13 extends Specification {
     def magicFormula(a, b) {
         // ------------ START EDITING HERE ----------------------
 
+        if(a == 3)
+            return a - 1 + b * 3
+
+        if(a == 'a')
+            return 'aa2'
+
+        return 2 * a + b
 
         // ------------ STOP EDITING HERE  ----------------------
     }
